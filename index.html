@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renacidos FC | Institución Deportiva 🌌⚽</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --neon-cyan: #00f2ff;
+            --neon-green: #96fbc4;
+            --deep-space: #000428;
+            --hot-pink: #ff0055;
+            --gold: #ffcc00;
+            --professional-blue: #003366;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: var(--deep-space);
+            background: radial-gradient(circle at center, #001f3f 0%, #000428 100%);
+            color: white;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* FONDO DINÁMICO */
+        .stars-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.4;
+            animation: moveStars 120s linear infinite;
+        }
+        @keyframes moveStars { from { background-position: 0 0; } to { background-position: 1000px 1000px; } }
+
+        /* HEADER INSTITUCIONAL */
+        header {
+            padding: 100px 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border-bottom: 4px solid var(--neon-cyan);
+            text-align: center;
+            box-shadow: 0 10px 50px rgba(0, 242, 255, 0.3);
+        }
+
+        .img-galactic {
+            width: 140px; height: 140px;
+            border-radius: 50%;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 40px var(--gold);
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 0 20px var(--neon-cyan);
+        }
+
+        .subtitle {
+            color: var(--neon-green);
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+
+        .container { width: 100%; max-width: 1100px; margin: auto; padding: 40px 15px; }
+
+        /* TARJETAS PROFESIONALES */
+        .art-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            padding: 40px;
+            margin-bottom: 60px;
+            border-radius: 2px; /* Estilo más cuadrado y profesional */
+            border-left: 8px solid var(--neon-cyan);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            position: relative;
+            transition: 0.4s ease-in-out;
+        }
+
+        .art-card:hover {
+            transform: translateY(-5px);
+            border-left-color: var(--hot-pink);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* SECCIÓN JUGADORES - ESTILO ÉLITE */
+        .idols-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .idol-card {
+            background: linear-gradient(145deg, #001f3f, #000428);
+            border: 1px solid var(--gold);
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .idol-card i {
+            font-size: 4em;
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px var(--gold);
+        }
+
+        .idol-card h3 {
+            font-size: 1.8em;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .idol-card p {
+            color: var(--neon-green);
+            font-weight: bold;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        /* TABLA DE CLASIFICACIÓN */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: rgba(0,0,0,0.3);
+        }
+
+        th, td {
+            padding: 18px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        th { color: var(--neon-cyan); text-transform: uppercase; letter-spacing: 2px; }
+
+        /* MAPA Y GPS */
+        .map-box {
+            width: 100%;
+            height: 400px;
+            border: 2px solid var(--neon-cyan);
+            filter: grayscale(0.5) contrast(1.2);
+        }
+
+        .btn-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 22px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.1em;
+            margin-top: 20px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .btn-gps { background: var(--professional-blue); border: 1px solid var(--neon-cyan); }
+        .btn-wa { background: #128c7e; }
+
+        .btn-link:hover {
+            filter: brightness(1.3);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
+        }
+
+        footer {
+            padding: 80px 20px;
+            background: #000;
+            text-align: center;
+            border-top: 4px solid var(--neon-cyan);
+        }
+
+        .footer-logo { font-size: 2em; font-weight: 900; color: var(--gold); }
+    </style>
+</head>
+<body>
+
+    <div class="stars-container"></div>
+
+    <header>
+        <img src="https://cdn-icons-png.flaticon.com/512/5323/5323824.png" class="img-galactic" alt="Logo Renacidos FC">
+        <h1>RENACIDOS FC</h1>
+        <p class="subtitle">INSTITUCIÓN DEPORTIVA | CAAGUAZÚ, PARAGUAY</p>
+    </header>
+
+    <div class="container">
+
+        <div class="art-card">
+            <h2><i class="fas fa-university"></i> Filosofía Institucional</h2>
+            <p>Renacidos FC se establece como un proyecto deportivo de alto rendimiento en el corazón de Caaguazú. Nuestra misión es el desarrollo técnico, táctico y humano de jóvenes atletas, proyectando el talento local hacia niveles competitivos profesionales.</p>
+        </div>
+
+        <div class="art-card">
+            <h2><i class="fas fa-chart-line"></i> Referentes de Excelencia</h2>
+            <div class="idols-grid">
+                <div class="idol-card">
+                    <i class="fas fa-crown"></i>
+                    <h3>Neymar Jr.</h3>
+                    <p>Creatividad & Técnica</p>
+                </div>
+                <div class="idol-card">
+                    <i class="fas fa-magic"></i>
+                    <h3>Ronaldinho</h3>
+                    <p>Habilidad & Visión</p>
+                </div>
+                <div class="idol-card">
+                    <i class="fas fa-gem"></i>
+                    <h3>Kaká</h3>
+                    <p>Elegancia & Disciplina</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="art-card">
+            <h2><i class="fas fa-trophy"></i> Desempeño en Liga</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Posición</th>
+                        <th>Club</th>
+                        <th>Puntos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: rgba(0, 242, 255, 0.1);">
+                        <td>01</td>
+                        <td>RENACIDOS FC 🥀</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td>CAAGUAZÚ CITY</td>
+                        <td>09</td>
+                    </tr>
+                    <tr>
+                        <td>03</td>
+                        <td>METEOROS FC</td>
+                        <td>07</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="art-card">
+            <h2><i class="fas fa-map-marked-alt"></i> Complejo Deportivo (GXVQ+WW8)</h2>
+            <p style="margin-bottom: 20px;">Sede central estratégicamente ubicada frente a la <b>Escuela Técnica Industrial N° 1</b> y la <b>Escuela María Auxiliadora</b>.</p>
+            <iframe class="map-box" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.312345678!2d-56.0243419!3d-25.4561706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDI3JzIyLjIiUyA1NsKwMDEnMjcuNiJX!5e0!3m2!1ses-419!2spy!4v1711986100000!5m2!1ses-419!2spy5" allowfullscreen="" loading="lazy"></iframe>
+            <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.312345678!2d-56.0243419!3d-25.4561706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDI3JzIyLjIiUyA1NsKwMDEnMjcuNiJX!5e0!3m2!1ses-419!2spy!4v1711986100000!5m2!1ses-419!2spy6" target="_blank" class="btn-link btn-gps">
+                COORDENADAS GPS OFICIALES
+            </a>
+        </div>
+
+        <div class="art-card">
+            <h2><i class="fas fa-id-card"></i> Contacto Institucional</h2>
+            <p>Para convocatorias, pruebas de talento o convenios deportivos, comuníquese a través de nuestros canales oficiales:</p>
+            <a href="https://wa.me/595984596034" target="_blank" class="btn-link btn-wa">CONTACTAR AL DEPARTAMENTO DEPORTIVO</a>
+            <a href="https://chat.whatsapp.com/KxEnzdJLQU2EEGp2pBDSNL" target="_blank" class="btn-link" style="background: #003366; border: 1px solid var(--gold);">CANAL DE INFORMACIÓN OFICIAL</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-logo">RENACIDOS FC</div>
+        <p style="margin-top: 15px; opacity: 0.7;">© 2026 Renacidos FC - Todos los derechos reservados.</p>
+        <p style="color: var(--neon-cyan); margin-top: 20px; font-weight: bold;">INDUSTRIAL UNO | MARÍA AUXILIADORA</p>
+    </footer>
+
+</body>
+                                                                                     </html>
+                                                                                     
